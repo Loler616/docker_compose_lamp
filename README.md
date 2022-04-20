@@ -14,7 +14,7 @@ Wykorzystane zostały do tego obrazy utworzone na potrzeby projektu, zbudowane n
 
 # Zawartość plików tworzących szkielet projektu
 
-Główna konfiguracja środowiska kontenerowego znalazła się w pliku `docker-compose.yml`, o ponizszej treści.
+Główna konfiguracja środowiska kontenerowego znalazła się w pliku `docker-compose.yml`, o poniższej treści:
 
 ```yaml
 version: '3.7'
@@ -60,7 +60,7 @@ networks:
 ```
 
 # Serwer Apache
-Serwer utworzony został na podstawie pliku `Dockerfile` o poniższej treści.
+Serwer utworzony został na podstawie pliku `Dockerfile` o poniższej treści:
 ```
 ## [1] Obraz bazowy
 FROM httpd:2.4.33-alpine
@@ -80,7 +80,7 @@ ports:
 ```
 
 # Serwer PHP
-Serwer utworzony został na podstawie pliku `Dockerfile` o poniższej treści.
+Serwer utworzony został na podstawie pliku `Dockerfile` o poniższej treści:
 ```
 ## [1] Obraz bazowy
 FROM php:7.4-fpm-alpine3.15
@@ -117,7 +117,7 @@ Utworzony został przykladowy plik `index.php`, pozwalający na przetestowanie d
 ```
 
 # Baza danych MySQL
-Serwer, bazujący na oficjalnym obrazie `mysql:8.0.28`, utworzony został na podstawie pliku `Dockerfile` o poniższej treści.
+Serwer, bazujący na oficjalnym obrazie `mysql:8.0.28`, utworzony został na podstawie pliku `Dockerfile` o poniższej treści:
 ```
 ## [1] Obraz bazowy
 FROM mysql:8.0.28
