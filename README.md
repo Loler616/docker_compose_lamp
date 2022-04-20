@@ -78,6 +78,31 @@ Zgodnie z konfiguracją z pliku `docker-compose.yml`, port zewnętrzny (systemu 
 ports:
       - 6666:80
 ```
+Należy skonfigurować serwer Apache, aby przekierowywał zapytania o pliki PHP do kontenera `php`.
+Zawartość pliku konfiguracyjnego Apache `demo.apache.conf`:
+```
+ServerName localhost
+
+LoadModule deflate_module /usr/local/apache2/modules/mod_deflate.so
+LoadModule proxy_module /usr/local/apache2/modules/mod_proxy.so
+LoadModule proxy_fcgi_module /usr/local/apache2/modules/mod_proxy_fcgi.so
+
+<VirtualHost *:80>
+    # Proxy .php requests to port 9000 of the php-fpm container
+    ProxyPassMatch ^/(.*\.php(/.*)?)$ fcgi://php:9000/var/www/html/$1
+    DocumentRoot /var/www/html/
+    <Directory /var/www/html/>
+        DirectoryIndex index.php
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+    
+    # Send apache logs to stdout and stderr
+    CustomLog /proc/self/fd/1 common
+    ErrorLog /proc/self/fd/2
+</VirtualHost>
+```
 
 # Serwer PHP
 Serwer utworzony został na podstawie pliku `Dockerfile` o poniższej treści:
