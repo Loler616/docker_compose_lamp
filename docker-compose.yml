@@ -1,0 +1,41 @@
+version: '3.7'
+services:
+
+  php:
+    container_name: php
+    build:
+      dockerfile: php.Dockerfile
+      context: .
+    volumes:
+      - ./html/:/var/www/html
+    networks:
+      - back
+    depends_on:
+      - mysql
+
+  apache:
+    build:
+      dockerfile: apache.Dockerfile
+      context: .
+    ports:
+      - 6666:80
+    container_name: apache
+    networks:
+      - front
+      - back
+
+  mysql:
+    build:
+      dockerfile: mysql.Dockerfile
+      context: .
+    restart: always
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password123
+    networks:
+      - back
+
+networks:
+  front:
+  back:
+      
