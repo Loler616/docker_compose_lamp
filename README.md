@@ -1,15 +1,7 @@
 # USŁUGA LAMP
 _środowisko kontenerowe z wykorzystaniem narzędzia docker-compose_
 
-
-![Docker compose logo](data:image/png;https://miro.medium.com/max/1000/1*JK4VDnsrF6YnAb2nyhMsdQ.png "Docker compose" )
-
-
-
-
-
-
-
+![Docker compose logo](https://miro.medium.com/max/1000/1*JK4VDnsrF6YnAb2nyhMsdQ.png "Docker compose" )
 
 # Baza projektu
 
